@@ -1,0 +1,14 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  // ssr: false
+  modules: ["@nuxtjs/tailwindcss"],
+  routeRules: {
+    "/spa": { ssr: false },
+    "/ssg": { static: true, prerender: true },
+    "/ssr": { ssr: true },
+  },
+  nitro: {
+    preset: "aws-lambda",
+    serveStatic: true,
+  },
+});

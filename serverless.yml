@@ -1,0 +1,18 @@
+service: ssr-nuxt3
+frameworkVersion: '3'
+provider:
+  name: aws
+  stage: dev
+  region: ap-northeast-1
+  profile: mocumocu-kondo
+
+package:
+  patterns:
+    - '!**'
+    - '.output/**'
+
+functions:
+  NuxtSsrCore:
+    runtime: nodejs18.x
+    handler: '.output/server/index.handler'
+    url: true
